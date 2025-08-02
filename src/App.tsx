@@ -63,7 +63,6 @@ export const App = () => {
 
       <form onSubmit={handleSubmit}>
         <div className="field">
-          <label htmlFor="titleInput">Title:</label>
           <input
             type="text"
             data-cy="titleInput"
@@ -76,7 +75,9 @@ export const App = () => {
               );
 
               setTitle(filteredValue);
-              setTitleError(null);
+              if (filteredValue.trim() !== '') {
+                setTitleError(null);
+              }
             }}
           />
           {titleError && <span className="error">{titleError}</span>}
@@ -88,7 +89,9 @@ export const App = () => {
             value={userId}
             onChange={event => {
               setUserId(event.target.value);
-              setUserError(null);
+              if (event.target.value !== '0') {
+                setUserError(null);
+              }
             }}
           >
             <option value="0" disabled>

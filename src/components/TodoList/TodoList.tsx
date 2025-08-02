@@ -10,7 +10,6 @@ export const TodoList = ({ todos }: Props) => {
       {todos.map(todo => (
         <TodoInfo key={todo.id} todo={todo} />
       ))}
-      ;
     </section>
   );
 };
